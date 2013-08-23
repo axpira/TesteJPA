@@ -11,6 +11,8 @@ import model.Contact;
 import org.hsqldb.Server;
 
 import dao.ContactDAO;
+import dao.ControllerGeneric;
+import dao.ControllerTest;
 import dao.JpaUtil;
 
 public class Teste {
@@ -30,18 +32,25 @@ public class Teste {
 			hsqlServer.start();
 			
 			
+			
 			ContactDAO contactDao = new ContactDAO(JpaUtil.getEntityManager());
 			Contact contact = contactDao.findByPk(2);
 			System.out.println(contact.getName());
 			
 			
+			
 			EntityManagerFactory emf = Persistence.createEntityManagerFactory("TesteHSQLDB");
 			EntityManager em = emf.createEntityManager();
-
+			
+			Contact contactTmp = new Contact();
+			contactTmp.setName("Shirley");
+//			System.out.println(em.find(Contact.class, contactTmp));
+			ControllerGeneric cg = new ControllerTest();
+			System.out.println(cg.findByPk(em, Contact.class, 1));
 			
 //			Contact contact = new Contact();
-//			contact.setContactId(2);
-//			contact.setName("Shirey");
+//			contact.setContactId(3);
+//			contact.setName("Maxi");
 //			em.getTransaction().begin();
 //			em.persist(contact);
 //			em.getTransaction().commit();

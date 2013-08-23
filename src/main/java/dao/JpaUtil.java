@@ -43,7 +43,7 @@ public class JpaUtil {
 		return props;
 	}
 	
-	public static void fillNamedParameters(Query q, Map<String, Object> parameters) {
+	public static void fillParameters(Query q, Map<String, Object> parameters) {
 		// e.getPersistenceUnitUtil().
 		if (parameters != null && !parameters.isEmpty()) {
 			for (Map.Entry<String, Object> entry : parameters.entrySet()) {
@@ -52,7 +52,7 @@ public class JpaUtil {
 		}
 	}
 
-	public static void fillIndexedParameters(Query q, Object... parameters) {
+	public static void fillParameters(Query q, Object... parameters) {
 		if (parameters != null && parameters.length > 0) {
 			for (int i = 0; i < parameters.length; i++) {
 				q.setParameter(i + 1, parameters[i]);

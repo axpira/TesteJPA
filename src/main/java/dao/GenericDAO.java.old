@@ -165,8 +165,7 @@ public abstract class GenericDAO<E extends PersistentEntity<PK>, PK extends Seri
         }
     }
     
-    
-    private void fillNamedParameters(Query q, Map<String, Object> parameters) {
+     private void fillNamedParameters(Query q, Map<String, Object> parameters) {
         if (parameters != null && !parameters.isEmpty()) {
             for (Map.Entry<String, Object> entry : parameters.entrySet()) {
                 q.setParameter(entry.getKey(), entry.getValue());

@@ -39,4 +39,10 @@ public class Contact implements Serializable{
 		this.name = name;
 	}
 
+	@Override
+	public String toString() {
+		return "Contact [contactId=" + contactId + ", name=" + name + "]";
+	}
+
+	
 }
